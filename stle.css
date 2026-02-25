@@ -1,0 +1,239 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #001f4d, #004aad);
+  color: white;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 22px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #ffd700;
+  outline: none;
+}
+
+/* HERO SECTION */
+.hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://scontent.fmnl7-1.fna.fbcdn.net/v/t39.30808-6/485615607_1180593007410330_874226586266688385_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGHng4Vu50inQkKW5FE3BSNvhSnPyptn6K-FKc_Km2fou584HGtmXeijsHckx-yiIcIXoxOuwoAv5z5uK2SxmDM&_nc_ohc=fCNXHeCZIr4Q7kNvwGWX6mC&_nc_oc=AdmSpjbvXTEiTkHrA4z1LxgaQnu2yfHAbAxaAktGDTOiVn4pja9K7z92GKg4s9QIFKU&_nc_zt=23&_nc_ht=scontent.fmnl7-1.fna&_nc_gid=edFOARP92BE8rfWMYw1CSA&oh=00_AfsIQWQFsYmHG2VHrntlSVxcz9Dou6kyBGrTNpIvaqyQ4w&oe=69A36D1F");
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero > div {
+  max-width: 800px;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+}
+
+/* Button inside hero */
+.hero button {
+  padding: 14px 40px;
+  border: none;
+  background: #ffd700;
+  color: #001f4d;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 15px rgba(255, 215, 0, 0.6);
+}
+
+.hero button:hover,
+.hero button:focus {
+  background: #fff159;
+  outline: none;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 241, 89, 0.8);
+}
+
+/* SECTIONS */
+section {
+  padding: 70px 8%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.2rem;
+  color: #001f4d;
+  font-weight: 700;
+}
+
+/* CARDS */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  color: #004aad;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  background: #ffd700;
+  color: #001f4d;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 15px rgba(255, 215, 0, 0.6);
+}
+
+.btn:hover,
+.btn:focus {
+  background: #fff159;
+  outline: none;
+}
+/* ANNOUNCEMENT */
+.announcement {
+  background: #004aad;
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* CONTACT FORM */
+.contact form {
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #004aad;
+}
+
+.contact button {
+  background: #001f4d;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 31, 77, 0.7);
+}
+
+.contact button:hover,
+.contact button:focus {
+  background: #004aad;
+  outline: none;
+}
+
+/* FOOTER */
+footer {
+  background: #001f4d;
+  color: white;
+  text-align: center;
+  padding: 20px 8%;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 50px 5%;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
