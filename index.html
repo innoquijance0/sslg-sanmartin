@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SSLG | San Martin National High School</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSLG | San Martin National High School</title>
+    <!-- Link the CSS file here -->
+    <link rel="stylesheet" href="stle.css">
+</head>
+<script src="java.js"></script>
+</body>
+</html>
   <style>
     /* Reset and base styles */
     * {
@@ -23,7 +27,7 @@
 
     /* HEADER */
     header {
-      background: linear-gradient(135deg, #04531c, #079b34);
+      background: linear-gradient(135deg, #04531c, #004aad);
       color: white;
       padding: 20px 8%;
       display: flex;
@@ -230,6 +234,42 @@
     }
   </style>
 </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const popup = document.getElementById("officerPopup");
+  const role = document.getElementById("popup-role");
+  const name = document.getElementById("popup-name");
+  const desc = document.getElementById("popup-desc");
+  const img = document.getElementById("popup-img");
+
+  window.openOfficer = function(r, n, i, d) {
+    role.textContent = r;
+    name.textContent = n;
+    desc.textContent = d;
+    img.src = i;
+
+    popup.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+
+  window.closeOfficer = function() {
+    popup.classList.remove("active");
+    document.body.style.overflow = "auto";
+  };
+
+  popup.addEventListener("click", function(e) {
+    if (e.target === popup) closeOfficer();
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeOfficer();
+  });
+
+});
+</script>
+
 <body>
 
   <header>
@@ -269,40 +309,36 @@
   </section>
 
   <section id="officers">
-    <h2 class="section-title">SSLG Officers</h2>
-    <!-- PRESIDENT POPUP -->
-<div id="president" class="modal">
-  <div class="modal-content">
-    <a href="#" class="close">&times;</a>
-    <img src="president.jpg" alt="">
-    <h2>President</h2>
-    <h3>Leeone Daniel Paglinawan</h3>
-    <p>Background of the President goes here...</p>
-  </div>
-</div>
+  <h2 class="section-title">SSLG Officers</h2>
 
-<!-- VP POPUP -->
-<div id="vp" class="modal">
-  <div class="modal-content">
-    <a href="#" class="close">&times;</a>
-    <img src="vp.jpg" alt="">
-    <h2>Vice President</h2>
-    <h3>Prince Jay Rey</h3>
-    <p>Background of the Vice President goes here...</p>
-  </div>
-</div>
+  <div class="card-container">
 
-<!-- SECRETARY POPUP -->
-<div id="secretary" class="modal">
-  <div class="modal-content">
-    <a href="#" class="close">&times;</a>
-    <img src="secretary.jpg" alt="">
-    <h2>Secretary</h2>
-    <h3>Leyka Destacamento</h3>
-    <p>Background of the Secretary goes here...</p>
+    <div class="officer-card" onclick="openOfficer(
+      'President',
+      'Juan Dela Cruz',
+      'president.jpg',
+      'Leads the SSLG and oversees all projects and student initiatives.'
+    )">
+      <img src="president.jpg" alt="President">
+      <h3>President</h3>
+      <p>Juan Dela Cruz</p>
+    </div>
+
+    <div class="officer-card" onclick="openOfficer(
+      'Vice President',
+      'Maria Santos',
+      'vp.jpg',
+      'Supports the President and manages internal affairs.'
+    )">
+      <img src="vp.jpg" alt="Vice President">
+      <h3>Vice President</h3>
+      <p>Maria Santos</p>
+    </div>
+
+    <!-- Add more officer cards here -->
+
   </div>
-</div>
-  </section>
+</section>
 
   <section id="projects">
     <h2 class="section-title">Transparency & Projects</h2>
@@ -322,15 +358,47 @@
     <p>© 2026 SSLG San Martin National High School | All Rights Reserved</p>
   </footer>
 
-  <!-- JS for smooth scroll -->
-  <script>
-    document.getElementById('view-projects-btn').addEventListener('click', () => {
-      const projectsSection = document.getElementById('projects');
-      if (projectsSection) {
-        projectsSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  </script>
+<div id="officerPopup" class="popup">
+  <div class="officer-popup">
+    <span class="close-btn" onclick="closeOfficer()">&times;</span>
+    <img id="popup-img" class="popup-img">
+    <h3 id="popup-role"></h3>
+    <h4 id="popup-name"></h4>
+    <p id="popup-desc"></p>
+  </div>
+</div>
 
+<script>
+function openOfficer(role, name, imgSrc, desc) {
+  document.getElementById('popup-role').textContent = role;
+  document.getElementById('popup-name').textContent = name;
+  document.getElementById('popup-img').src = imgSrc;
+  document.getElementById('popup-desc').textContent = desc;
+
+  document.getElementById('officerPopup').classList.add('active');
+}
+
+function closeOfficer() {
+  document.getElementById('officerPopup').classList.remove('active');
+}
+
+// Smooth scroll for "View Projects" button
+document.getElementById('view-projects-btn').addEventListener('click', () => {
+  const projectsSection = document.getElementById('projects');
+  if (projectsSection) {
+    projectsSection.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+</script>
+
+<div id="officerPopup" class="popup">
+  <div class="officer-popup">
+    <span class="close-btn" onclick="closeOfficer()">&times;</span>
+    <img id="popup-img" class="popup-img">
+    <h3 id="popup-role"></h3>
+    <h4 id="popup-name"></h4>
+    <p id="popup-desc"></p>
+  </div>
+</div>
 </body>
 </html>
